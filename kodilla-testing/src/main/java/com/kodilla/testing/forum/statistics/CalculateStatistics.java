@@ -1,10 +1,5 @@
 package com.kodilla.testing.forum.statistics;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-
 public class CalculateStatistics {
 
     Statistics statistics;
@@ -13,34 +8,64 @@ public class CalculateStatistics {
         this.statistics = statistics;
     }
 
-    double userQuantity = 0;
-    double postQuantity = 0;
-    double commentsQuantity = 0;
-    double postAveragePerUser = 0;
-    double commentsAveragePerUser = 0;
-    double postCommentsAverage = 0;
+    double userQuantity;
+    double postQuantity;
+    double commentsQuantity;
+    double postAveragePerUser;
+    double commentsAveragePerUser;
+    double postCommentsAverage;
+
+    public double getUserQuantity() {
+        return userQuantity;
+    }
+
+    public double getPostQuantity() {
+        return postQuantity;
+    }
+
+    public double getCommentsQuantity() {
+        return commentsQuantity;
+    }
+
+    public double getPostAveragePerUser() {
+        return postAveragePerUser;
+    }
+
+    public double getCommentsAveragePerUser() {
+        return commentsAveragePerUser;
+    }
+
+    public double getPostCommentsAverage() {
+        return postCommentsAverage;
+    }
+
 
     public void calculateAdvStatistics() {
 
-        userQuantity = statistics.usersNames().size();
-        postQuantity = statistics.postsCount();
-        commentsQuantity = statistics.commentsCount();
+        double userQuantity = statistics.usersNames().size();
+        double postQuantity = statistics.postsCount();
+        double commentsQuantity = statistics.commentsCount();
 
-        postAveragePerUser = postQuantity / userQuantity;
-        commentsAveragePerUser = commentsQuantity / userQuantity;
-        postCommentsAverage =  commentsQuantity / postCommentsAverage;
+        if(userQuantity > 0) {postAveragePerUser = postQuantity / userQuantity;
+        } else {System.out.println("Number of users is 0!");};
+
+        if(userQuantity > 0) {commentsAveragePerUser = commentsQuantity / userQuantity;
+        } else {System.out.println("Number of users is 0!");};
+
+        if (postQuantity > 0) {postCommentsAverage = commentsQuantity / postQuantity;
+        } else {System.out.println("Number of posts is 0!");};
 
     }
 
     public void showStatistics () {
 
-        System.out.println("User quantity: " + userQuantity);
-        System.out.println("Post quantity: " + postQuantity);
-        System.out.println("Comments quantity: " + commentsQuantity);
+       System.out.println("User quantity: " + userQuantity);
+       System.out.println("Post quantity: " + postQuantity);
+       System.out.println("Comments quantity: " + commentsQuantity);
 
-        System.out.println("Post - average per user: " + postAveragePerUser);
-        System.out.println("Comments - average per user: " + commentsAveragePerUser);
-        System.out.println("Comments - average per post: " + postCommentsAverage);
+       System.out.println("Post - average per user: " + postAveragePerUser);
+       System.out.println("Comments - average per user: " + commentsAveragePerUser);
+       System.out.println("Comments - average per post: " + postCommentsAverage);
 
-    }
+            }
 }

@@ -29,14 +29,15 @@ public class CalculateStatisticsTests {
         }
 
         @Test
-        public void testCalculateUserFirst() {
+        public void testPostAveragePerUser() {
 
             //Given
             Statistics statisticsMock = mock(Statistics.class);
             CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
 
+            int postQuantity = 0;
+            int commentQuantity = 150;
             List<String> usersList = new ArrayList<String>();
-
             for(int i =0; i < 100; i++ ){
 
                 usersList.add("Tomasz" + i);
@@ -44,12 +45,15 @@ public class CalculateStatisticsTests {
             }
 
             when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
 
             //When
-            int usersQuantity = usersList.size();
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
 
             //Then
-            Assert.assertEquals(100, usersQuantity);
+            Assert.assertEquals(0, postAveragePerUser,0.00001);
         }
 
         @Test
@@ -59,17 +63,23 @@ public class CalculateStatisticsTests {
             Statistics statisticsMock = mock(Statistics.class);
             CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
 
+            int postQuantity = 0;
+            int commentQuantity = 150;
             List<String> usersList = new ArrayList<String>();
+
             when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
 
             //When
-            int usersQuantity = usersList.size();
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
 
             //Then
-            Assert.assertEquals(0, usersQuantity);
+            Assert.assertEquals(0, postAveragePerUser,0);
         }
 
-        @Test
+        /*@Test
         public void testCalculatePostFirst() {
 
             //Given
@@ -158,7 +168,7 @@ public class CalculateStatisticsTests {
 
         //Then
         Assert.assertTrue( commentQuantity > postQuantity);
-    }
+    }*/
 
 
 
