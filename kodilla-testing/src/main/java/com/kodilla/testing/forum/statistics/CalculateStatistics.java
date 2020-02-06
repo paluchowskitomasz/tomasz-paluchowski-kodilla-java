@@ -28,14 +28,17 @@ public class CalculateStatistics {
     }
 
     public double getPostAveragePerUser() {
+
         return postAveragePerUser;
     }
 
     public double getCommentsAveragePerUser() {
+
         return commentsAveragePerUser;
     }
 
     public double getPostCommentsAverage() {
+
         return postCommentsAverage;
     }
 

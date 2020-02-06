@@ -29,14 +29,14 @@ public class CalculateStatisticsTests {
         }
 
         @Test
-        public void testPostAveragePerUser() {
+        public void testPostFirst() {
 
             //Given
             Statistics statisticsMock = mock(Statistics.class);
             CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
 
-            int postQuantity = 0;
-            int commentQuantity = 150;
+            int postQuantity = 1000;
+            int commentQuantity = 100;
             List<String> usersList = new ArrayList<String>();
             for(int i =0; i < 100; i++ ){
 
@@ -51,20 +51,153 @@ public class CalculateStatisticsTests {
             //When
             newCalculation.calculateAdvStatistics();
             double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
 
             //Then
-            Assert.assertEquals(0, postAveragePerUser,0.00001);
+            Assert.assertEquals(10, postAveragePerUser,0.00001);
+            Assert.assertEquals(1, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(0.1, postCommentsAverage,0.00001);
         }
 
         @Test
-        public void testCalculateUserSecond() {
+        public void testPostSecond() {
 
             //Given
             Statistics statisticsMock = mock(Statistics.class);
             CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
 
             int postQuantity = 0;
-            int commentQuantity = 150;
+            int commentQuantity = 100;
+            List<String> usersList = new ArrayList<String>();
+            for(int i =0; i < 100; i++ ){
+
+                usersList.add("Tomasz" + i);
+
+            }
+
+            when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
+
+            //When
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
+
+            //Then
+            Assert.assertEquals(0, postAveragePerUser,0.00001);
+            Assert.assertEquals(1, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(0, postCommentsAverage,0.00001);
+        }
+
+        @Test
+        public void testCommentFirst() {
+
+            //Given
+            Statistics statisticsMock = mock(Statistics.class);
+            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
+
+            int postQuantity = 100;
+            int commentQuantity = 0;
+            List<String> usersList = new ArrayList<String>();
+            for(int i =0; i < 100; i++ ){
+
+                usersList.add("Tomasz" + i);
+
+            }
+
+            when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
+
+            //When
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
+
+            //Then
+            Assert.assertEquals(1, postAveragePerUser,0.00001);
+            Assert.assertEquals(0, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(0, postCommentsAverage,0.00001);
+        }
+
+
+        @Test
+        public void testCommentSecond() {
+
+            //Given
+            Statistics statisticsMock = mock(Statistics.class);
+            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
+
+            int postQuantity = 100;
+            int commentQuantity = 10;
+            List<String> usersList = new ArrayList<String>();
+            for(int i =0; i < 100; i++ ){
+
+                usersList.add("Tomasz" + i);
+
+            }
+
+            when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
+
+            //When
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
+
+            //Then
+            Assert.assertEquals(1, postAveragePerUser,0.00001);
+            Assert.assertEquals(0.1, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(0.1, postCommentsAverage,0.00001);
+        }
+
+        @Test
+        public void testCommentThird() {
+
+            //Given
+            Statistics statisticsMock = mock(Statistics.class);
+            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
+
+            int postQuantity = 10;
+            int commentQuantity = 100;
+            List<String> usersList = new ArrayList<String>();
+            for(int i =0; i < 100; i++ ){
+
+                usersList.add("Tomasz" + i);
+
+            }
+
+            when(statisticsMock.usersNames()).thenReturn(usersList);
+            when(statisticsMock.postsCount()).thenReturn(postQuantity);
+            when(statisticsMock.commentsCount()).thenReturn(commentQuantity);
+
+            //When
+            newCalculation.calculateAdvStatistics();
+            double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
+
+            //Then
+            Assert.assertEquals(0.1, postAveragePerUser,0.00001);
+            Assert.assertEquals(1, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(10, postCommentsAverage,0.00001);
+        }
+
+        @Test
+        public void testUserFirst() {
+
+            //Given
+            Statistics statisticsMock = mock(Statistics.class);
+            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
+
+            int postQuantity = 0;
+            int commentQuantity = 0;
             List<String> usersList = new ArrayList<String>();
 
             when(statisticsMock.usersNames()).thenReturn(usersList);
@@ -74,104 +207,13 @@ public class CalculateStatisticsTests {
             //When
             newCalculation.calculateAdvStatistics();
             double postAveragePerUser = newCalculation.getPostAveragePerUser();
+            double commentsAveragePerUser = newCalculation.getCommentsAveragePerUser();
+            double postCommentsAverage = newCalculation.getPostCommentsAverage();
 
             //Then
-            Assert.assertEquals(0, postAveragePerUser,0);
+            Assert.assertEquals(0, postAveragePerUser,0.00001);
+            Assert.assertEquals(0, commentsAveragePerUser,0.00001);
+            Assert.assertEquals(0, postCommentsAverage,0.00001);
         }
-
-        /*@Test
-        public void testCalculatePostFirst() {
-
-            //Given
-            Statistics statisticsMock = mock(Statistics.class);
-            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
-
-            int postNumber = 0;
-            when(statisticsMock.postsCount()).thenReturn(postNumber);
-
-            //When
-            int postQuantity = postNumber;
-
-            //Then
-            Assert.assertEquals(0, postQuantity);
-        }
-
-        @Test
-        public void testCalculatePostSecond() {
-
-            //Given
-            Statistics statisticsMock = mock(Statistics.class);
-            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
-
-            int postNumber = 1000;
-            when(statisticsMock.postsCount()).thenReturn(postNumber);
-
-            //When
-            int postQuantity = postNumber;
-
-            //Then
-            Assert.assertEquals(1000, postQuantity);
-        }
-
-       @Test
-        public void testCalculateCommentFirst() {
-
-            //Given
-            Statistics statisticsMock = mock(Statistics.class);
-            CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
-
-            int commentNumber = 0;
-            when(statisticsMock.commentsCount()).thenReturn(commentNumber);
-
-            //When
-            int commentQuantity = commentNumber;
-
-            //Then
-            Assert.assertEquals(0, commentQuantity);
-        }
-
-    @Test
-    public void testCalculateCommentSecond() {
-
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
-
-        int postNumber = 1000;
-        int commentNumber = 0;
-        when(statisticsMock.postsCount()).thenReturn(postNumber);
-        when(statisticsMock.commentsCount()).thenReturn(commentNumber);
-
-        //When
-        int postQuantity = postNumber;
-        int commentQuantity = commentNumber;
-
-        //Then
-        Assert.assertTrue(commentQuantity < postQuantity);
-    }
-
-    @Test
-    public void testCalculateCommentThird() {
-
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        CalculateStatistics newCalculation = new CalculateStatistics(statisticsMock);
-
-        int postNumber = 0;
-        int commentNumber = 1000;
-        when(statisticsMock.postsCount()).thenReturn(postNumber);
-        when(statisticsMock.commentsCount()).thenReturn(commentNumber);
-
-        //When
-        int postQuantity = postNumber;
-        int commentQuantity = commentNumber;
-
-        //Then
-        Assert.assertTrue( commentQuantity > postQuantity);
-    }*/
-
-
-
-
 
 }
