@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
@@ -31,6 +32,13 @@ public class StreamMain {
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
+
+        System.out.println("Using Stream ...7.3 Zadanie: funkcyjny spacer po liście użytkowników forum");
+        Forum theForum = new Forum();
+        theForum.getUserList().stream()
+                .filter(forumUser -> forumUser.getUserGender() == 'm')
+                .filter(forumUser -> forumUser.getPostCount() > 0)
+                .forEach(System.out::println);
 
     }
 }
