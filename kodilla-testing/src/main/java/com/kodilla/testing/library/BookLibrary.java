@@ -1,9 +1,12 @@
 package com.kodilla.testing.library;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class BookLibrary {
+
     LibraryDatabase libraryDatabase;
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
@@ -20,16 +23,9 @@ public class BookLibrary {
         return bookList;
     }
 
-    /*public Map<Book, LibraryUser> listBooksInHandsOf(LibraryUser libraryUser) {
+     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
 
-        Map<Book, LibraryUser>
-        List<Book> bookList = new ArrayList<Book>();
-        if (titleFragment.length() < 3) return bookList;
+        List<Book> newListBooksInHandsOf = new ArrayList<>();
 
-        List<Book> resultList = libraryDatabase
-                .listBooksWithCondition(titleFragment);
-        if (resultList.size() > 20) return bookList;
-        bookList = resultList;
-        return bookList;
-    }*/
+    }
 }
