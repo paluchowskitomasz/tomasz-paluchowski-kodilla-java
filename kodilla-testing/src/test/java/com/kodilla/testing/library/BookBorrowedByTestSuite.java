@@ -111,7 +111,7 @@ public class BookBorrowedByTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
-    @Test
+    /*@Test
     public void testBookBorrowedByUserOneBook() {
 
         // Given
@@ -151,9 +151,9 @@ public class BookBorrowedByTestSuite {
 
         // Then
         assertEquals(5, listOfBorrowedBooksSize);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void testBookBorrowedByUserFiveBooks() {
 
         // Given
@@ -186,5 +186,5 @@ public class BookBorrowedByTestSuite {
 
         // Then
         assertEquals(5, listOfBorrowedBooksSize);
-    }
+    }*/
 }
