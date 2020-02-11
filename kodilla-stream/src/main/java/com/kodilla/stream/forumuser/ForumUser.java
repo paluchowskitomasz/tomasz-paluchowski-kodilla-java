@@ -1,6 +1,7 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public final class ForumUser {
 
@@ -10,13 +11,17 @@ public final class ForumUser {
     private final LocalDate userDateOfBirth;
     private final int postCount;
 
+
+
     public ForumUser(final int userID, final String userName, final char userGender, final LocalDate userDateOfBirth, final int postCount) {
         this.userID = userID;
         this.userName = userName;
         this.userGender = userGender;
         this.userDateOfBirth = userDateOfBirth;
         this.postCount = postCount;
+
     }
+
 
     public int getUserID() {
         return userID;
@@ -38,6 +43,15 @@ public final class ForumUser {
         return postCount;
     }
 
+    public int ageCalculate(){
+
+        LocalDate now = LocalDate.now();
+        Period ageUser = Period.between(userDateOfBirth,now);
+        int diffYear = ageUser.getYears();
+        return diffYear;
+
+    }
+
     @Override
     public String toString() {
         return "ForumUser{" +
@@ -46,6 +60,9 @@ public final class ForumUser {
                 ", userGender=" + userGender +
                 ", userDateOfBirth=" + userDateOfBirth +
                 ", postCount=" + postCount +
+                ", userAge=" + ageCalculate() +
                 '}';
     }
+
+
 }
