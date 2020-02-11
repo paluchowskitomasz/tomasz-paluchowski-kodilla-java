@@ -111,7 +111,7 @@ public class BookBorrowedByTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
-    /*@Test
+    @Test
     public void testBookBorrowedByUserOneBook() {
 
         // Given
@@ -131,7 +131,7 @@ public class BookBorrowedByTestSuite {
         List<Book> listOfBorrowedBooksSize = bookLibrary.listBooksInHandsOf(user1);
 
         // Then
-        assertEquals(1, listOfBorrowedBooksSize);
+        assertEquals(1, listOfBorrowedBooksSize.size());
 
     }
 
@@ -150,10 +150,10 @@ public class BookBorrowedByTestSuite {
         List<Book> listOfBorrowedBooksSize = bookLibrary.listBooksInHandsOf(user1);
 
         // Then
-        assertEquals(5, listOfBorrowedBooksSize);
-    }*/
+        assertEquals(0, listOfBorrowedBooksSize.size());
+    }
 
-    /*@Test
+    @Test
     public void testBookBorrowedByUserFiveBooks() {
 
         // Given
@@ -172,19 +172,19 @@ public class BookBorrowedByTestSuite {
         LibraryUser user4 = new LibraryUser("Marcin","Kowalski", "12345678909");
         LibraryUser user5 = new LibraryUser("Marcin","Kowalski", "12345678909");
 
-        List<Book> listOf1Book = new ArrayList<Book>();
-        listOf1Book.add(book1);
-        listOf1Book.add(book2);
-        listOf1Book.add(book3);
-        listOf1Book.add(book4);
-        listOf1Book.add(book5);
+        List<Book> listOf5Books = new ArrayList<Book>();
+        listOf5Books.add(book1);
+        listOf5Books.add(book2);
+        listOf5Books.add(book3);
+        listOf5Books.add(book4);
+        listOf5Books.add(book5);
 
-        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(listOf1Book);
+        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(listOf5Books);
 
         // When
         List<Book> listOfBorrowedBooksSize = bookLibrary.listBooksInHandsOf(user1);
 
         // Then
-        assertEquals(5, listOfBorrowedBooksSize);
-    }*/
+        assertEquals(5, listOfBorrowedBooksSize.size());
+    }
 }
