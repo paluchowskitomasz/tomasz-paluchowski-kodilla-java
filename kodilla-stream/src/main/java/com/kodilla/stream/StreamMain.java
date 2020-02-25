@@ -5,6 +5,8 @@ import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
 import java.util.stream.Collectors;
 
+
+
 public class StreamMain implements ArrayOperations{
     public static void main(String[] args) {
         BookDirectory theBookDirectory = new BookDirectory();
@@ -14,6 +16,8 @@ public class StreamMain implements ArrayOperations{
                 .collect(Collectors.joining(",\n","<<",">>"));
 
         System.out.println(theResultStringOfBooks);
+
+
 
     }
 }
