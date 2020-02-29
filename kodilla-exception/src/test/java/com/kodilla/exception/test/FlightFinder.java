@@ -15,31 +15,13 @@ public class FlightFinder {
         airportStatus.put("Liverpool", true);
         airportStatus.put("Rome", false);
 
-        /*if (airportStatus.containsKey(flight.arrivalAirport) &  airportStatus.get(flight.arrivalAirport) == true) {
+        if (airportStatus.containsKey(flight.arrivalAirport) &&  airportStatus.get(flight.arrivalAirport) == true) {
 
             System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport available! " + "\nAirport status:" + airportStatus.toString());
 
-        } else if (airportStatus.containsKey(flight.arrivalAirport) &  airportStatus.get(flight.arrivalAirport) == false) {
+        } else if (airportStatus.containsKey(flight.arrivalAirport) &&  airportStatus.get(flight.arrivalAirport) == false) {
 
                 System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport NOT available! " + "\nAirport status:" + airportStatus.toString());
-
-        } else {
-
-                throw new RouteNotFoundException("Object AIRPORT was null!");
-
-        }*/
-
-        if (airportStatus.containsKey(flight.arrivalAirport)) {
-
-            if (airportStatus.get(flight.arrivalAirport) == true) {
-
-                System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport available! " + "\nAirport status:" + airportStatus.toString());
-
-            } else {
-
-                System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport NOT available! " + "\nAirport status:" + airportStatus.toString());
-
-            }
 
         } else {
 
