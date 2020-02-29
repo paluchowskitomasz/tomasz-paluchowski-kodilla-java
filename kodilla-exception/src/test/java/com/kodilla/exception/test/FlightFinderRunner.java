@@ -31,6 +31,8 @@ public class FlightFinderRunner {
 
         }
 
+        System.out.println("...going further.");
+
     }
 
 }
