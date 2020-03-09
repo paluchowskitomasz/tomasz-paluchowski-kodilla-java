@@ -21,7 +21,7 @@ public class FlightFinder {
 
         } else if (airportStatus.containsKey(flight.arrivalAirport) &&  airportStatus.get(flight.arrivalAirport) == false) {
 
-                System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport NOT available! " + "\nAirport status:" + airportStatus.toString());
+            System.out.println("Flight to: " + flight.getArrivalAirport() + "\nAirport NOT available! " + "\nAirport status:" + airportStatus.toString());
 
         } else {
 
