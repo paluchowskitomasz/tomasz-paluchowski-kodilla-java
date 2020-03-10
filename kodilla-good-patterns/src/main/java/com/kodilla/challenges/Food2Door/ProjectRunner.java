@@ -27,7 +27,7 @@ public class ProjectRunner {
         newShop.showProductInTheShop();
 
         Delivery newDelivery = new Delivery();
-    newDelivery.process(newShop.shopListOfProd, "Food from the village", "Milk", 1);
+        newDelivery.process(newShop.shopListOfProd, "Food from the village", "Milk", 1);
     }
 
 }
