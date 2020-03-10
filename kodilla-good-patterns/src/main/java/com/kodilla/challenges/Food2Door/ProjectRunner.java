@@ -1,9 +1,5 @@
 package com.kodilla.challenges.Food2Door;
 
-import com.kodilla.challenges.MovieStore;
-
-import java.util.stream.Collectors;
-
 public class ProjectRunner {
 
 

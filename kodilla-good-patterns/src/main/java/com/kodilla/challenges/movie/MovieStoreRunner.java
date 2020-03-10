@@ -1,12 +1,7 @@
-package com.kodilla.challenges;
+package com.kodilla.challenges.movie;
 
-import com.kodilla.challenges.MovieStore;
+import com.kodilla.challenges.movie.MovieStore;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
-import java.util.Set;
 import java.util.stream.*;
 
 public class MovieStoreRunner {
