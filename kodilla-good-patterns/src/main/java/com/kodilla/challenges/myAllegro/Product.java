@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Product {
 
-    String productID;
-    String productName;
-    int productQuantity;
+    private String productID;
+    private String productName;
+    private int productQuantity;
 
     public Product(String productID, String productName, int productQuantity) {
         this.productID = productID;
@@ -15,6 +15,7 @@ public class Product {
     }
 
     public String getProductID() {
+
         return productID;
     }
 
