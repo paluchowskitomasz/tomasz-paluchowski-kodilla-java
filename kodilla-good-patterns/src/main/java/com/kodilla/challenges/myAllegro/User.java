@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class User {
 
-    String userName;
-    String userLastName;
-    String userPESEL;
+    private String userName;
+    private String userLastName;
+    private String userPESEL;
 
 
 

@@ -1,10 +1,8 @@
 package com.kodilla.challenges.myAllegro;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 public class ProductBuy extends ProductRepo {
 
@@ -14,14 +12,27 @@ public class ProductBuy extends ProductRepo {
         this.user = user;
     };
 
-    public Map<Seller, List<Product>> buy(Seller seller, Product product) {
+    public void buySomething(Map<Seller, List<Product>> productsOnMyAllegro, Seller seller, Product product) {
 
 
-        System.out.println( user.userName + " " + user.userLastName + " is trying to buy " + product.productName + " - quantity: " + product.productQuantity
-                + " from: " + seller.sellerFirstName + " " + seller.sellerLastName +".");
+        System.out.println( "\n" + user.getUserName() + " " + user.getUserLastName() + " is trying to buy " + product.getProductName() + " - quantity: " + product.getProductQuantity()
+                + " from: " + seller.getSellerFirstName() + " " + seller.getSellerLastName() +".");
 
+        System.out.println("\nI am starting checking avaiability of product...");
 
+        List<String> list = productsOnMyAllegro.entrySet().stream()
+                .filter(s -> s.getKey() == seller)
+                .flatMap(v -> v.getValue().stream())
+                .filter(f -> f.getProductName() == product.getProductName())
+                .map(m -> m.getProductName() + " " + m.getProductQuantity())
+                .collect(Collectors.toList());
 
-        return mapOfSellersAndTheirsProducts;
+        if(list.size() != 0) {
+            System.out.println("We have: " + list);
+            System.out.println("You have bought it! Success!");
+        } else {
+            System.out.println("We don't have this product!");
+        }
+
     }
 }

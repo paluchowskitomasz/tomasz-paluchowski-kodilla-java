@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Seller {
 
-    String sellerFirstName;
-    String sellerLastName;
-    String sellerPesel;
+    private String sellerFirstName;
+    private String sellerLastName;
+    private String sellerPesel;
 
     public Seller(String sellerFirstName, String sellerLastName, String sellerPesel) {
         this.sellerFirstName = sellerFirstName;

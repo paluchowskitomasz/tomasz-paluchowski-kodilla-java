@@ -35,16 +35,7 @@ public class ProductOrderService {
         newSellerRepo.showSellersAndTheirsProducts();
 
         ProductBuy buySomething = new ProductBuy(user1);
-        buySomething.buy(seller1, new Product("1","Apples",1));
-
-
-
-       /* for(Map.Entry entry: userBuyed.entrySet()){
-
-            System.out.println("You are trying to buy buy something from: " + entry.getKey());
-            System.out.println("It is: " + entry.getValue());
-
-        }*/
+        buySomething.buySomething(newSellerRepo.mapOfSellersAndTheirsProducts,seller1, new Product("1","Apples",1));
 
     }
 
