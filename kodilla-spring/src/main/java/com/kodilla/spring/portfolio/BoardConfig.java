@@ -16,9 +16,17 @@ public class BoardConfig {
     @Qualifier("toDoList")
     TaskList taskList;
 
+    @Autowired
+    @Qualifier("inProgressList")
+    TaskList taskList1;
+
+    @Autowired
+    @Qualifier("doneList")
+    TaskList taskList2;
+
     @Bean
     public Board getBoard(){
-        return new Board(taskList);
+        return new Board(taskList, taskList1, taskList2);
     }
 
     @Bean(name = "toDoList")
