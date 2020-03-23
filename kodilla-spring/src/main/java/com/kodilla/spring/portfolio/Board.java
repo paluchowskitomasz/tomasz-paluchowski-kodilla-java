@@ -1,6 +1,7 @@
 package com.kodilla.spring.portfolio;
 
 import javafx.concurrent.Task;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,12 +15,6 @@ public class Board {
         this.toDoList = toDoList;
         this.inProgressList = inProgressList;
         this.doneList = doneList;
-    }
-
-    public void showListOfTasks() {
-        System.out.println("List of tasks: " + toDoList.getTasks());
-        System.out.println("List of tasks: " + inProgressList.getTasks());
-        System.out.println("List of tasks: " + doneList.getTasks());
     }
 
     public TaskList getToDoList() {
