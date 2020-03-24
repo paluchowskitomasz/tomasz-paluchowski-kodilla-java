@@ -18,20 +18,31 @@ public class BoardTestSuite {
 
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
+
         Board board = context.getBean(Board.class);
+
+        TaskList toDoList = context.getBean("toDoList",TaskList.class);
+        TaskList inProgressDoList = context.getBean("inProgressList",TaskList.class);
+        TaskList doneList = context.getBean("doneList",TaskList.class);
+
+
+       //When
         board.getToDoList().addTask("To do list - task 1");
         board.getInProgressList().addTask("In progress list - task 1");
         board.getDoneList().addTask("Done list - task 1");
+        
+        String taskToDoNameBoard = board.getToDoList().getTasks().toString();
+        String taskInProgressNameBoard = board.getInProgressList().getTasks().toString();
+        String taskDoneNameBoard = board.getDoneList().getTasks().toString();
 
-       //When
-        String taskToDoNameBoard = board.getToDoList().getTasks().get(0).toString();
-        String taskInProgressNameBoard = board.getInProgressList().getTasks().get(0).toString();
-        String taskDoneNameBoard = board.getDoneList().getTasks().get(0).toString();
+        String toDoFromTaskBean = toDoList.getTasks().toString();
+        String inProgressFromTaskBean = inProgressDoList.getTasks().toString();
+        String doneFromTaskBean = doneList.getTasks().toString();
 
         //Then
-        Assert.assertTrue(taskToDoNameBoard.contains("To do list - task 1"));
-        Assert.assertTrue(taskInProgressNameBoard.contains("In progress list - task 1"));
-        Assert.assertTrue(taskDoneNameBoard.contains("Done list - task 1"));
+        Assert.assertEquals(taskToDoNameBoard, toDoFromTaskBean);
+        Assert.assertEquals(taskInProgressNameBoard, inProgressFromTaskBean);
+        Assert.assertEquals(taskDoneNameBoard, doneFromTaskBean);
     }
 
 }
