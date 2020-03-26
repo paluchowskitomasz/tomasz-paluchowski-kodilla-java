@@ -30,7 +30,7 @@ public class BoardTestSuite {
         board.getToDoList().addTask("To do list - task 1");
         board.getInProgressList().addTask("In progress list - task 1");
         board.getDoneList().addTask("Done list - task 1");
-        
+
         String taskToDoNameBoard = board.getToDoList().getTasks().toString();
         String taskInProgressNameBoard = board.getInProgressList().getTasks().toString();
         String taskDoneNameBoard = board.getDoneList().getTasks().toString();
