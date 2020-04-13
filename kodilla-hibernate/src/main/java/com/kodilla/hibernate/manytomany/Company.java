@@ -1,10 +1,18 @@
 package com.kodilla.hibernate.manytomany;
 
+import com.kodilla.hibernate.task.Task;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.findCompanyByThreeFirstLetter",
+        query = "SELECT * FROM companies WHERE company_name like CONCAT(LEFT (:ThreeFirstLetter,3),'%')",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
