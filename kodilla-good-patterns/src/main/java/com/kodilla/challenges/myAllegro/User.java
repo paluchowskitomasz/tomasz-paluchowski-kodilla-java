@@ -29,25 +29,4 @@ public class User {
         return userPESEL;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User that = (User) o;
-        return Objects.equals(userPESEL, that.userPESEL);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userPESEL);
-    }
-
-    @Override
-    public String toString() {
-        return "ProductOrderUser{" +
-                "userName='" + userName + '\'' +
-                ", userLastName='" + userLastName + '\'' +
-                ", userPESEL='" + userPESEL + '\'' +
-                '}';
-    }
 }

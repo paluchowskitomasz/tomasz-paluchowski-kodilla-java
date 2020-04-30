@@ -27,25 +27,4 @@ public class Seller {
         return sellerPesel;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Seller that = (Seller) o;
-        return Objects.equals(sellerPesel, that.sellerPesel);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(sellerPesel);
-    }
-
-    @Override
-    public String toString() {
-        return "ProductOrderSeller{" +
-                ", sellerFirstName='" + sellerFirstName + '\'' +
-                ", sellerLastName='" + sellerLastName + '\'' +
-                ", sellerPesel='" + sellerPesel + '\'' +
-                '}';
-    }
 }

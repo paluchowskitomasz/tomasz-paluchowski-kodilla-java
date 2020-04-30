@@ -27,25 +27,4 @@ public class Product {
         return productQuantity;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product that = (Product) o;
-        return Objects.equals(productID, that.productID);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(productID);
-    }
-
-    @Override
-    public String toString() {
-        return "ProductOrderProduct{" +
-                "productID='" + productID + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productQuantity=" + productQuantity +
-                '}';
-    }
 }
