@@ -22,6 +22,7 @@ public class OrderProcessor {
         if (isSold) {
             informationService.inform(orderRequest.getUser());
             orderService.order(orderRequest.getUser(), orderRequest.getSeller(), orderRequest.getProduct());
+            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getSeller(), orderRequest.getProduct());
             return new OrderProcessDto(orderRequest.getUser(),  true);
 
         } else {
