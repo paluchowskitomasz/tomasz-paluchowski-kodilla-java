@@ -34,15 +34,15 @@ public class FlightRunner {
         newFlightRepo.addFlightToList(flight5);
 
         System.out.println("\nFind - From city: Warszawa");
-        List<String> listofAllFlightsFromCity = newFlightRepo.listOfFlights.stream()
-                .filter(c -> c.departureCity == "Warszawa")
+        List<String> listofAllFlightsFromCity = newFlightRepo.getListOfFlights().stream()
+                .filter(c -> c.departureCity.equals("Warszawa"))
                 .map(m -> "\nDeparture from: " + m.departureCity + "  " + m.departureDateTime.format(formatter) + "\nDestination: " + m.arrivalCity + "  " + m.arrivalDateTime.format(formatter))
                 .collect(Collectors.toList());
 
         listofAllFlightsFromCity.forEach(x -> System.out.println(x));
 
         System.out.println("\nFind - To city - Szczecin:");
-        List<String> listofAllFlightsToCity = newFlightRepo.listOfFlights.stream()
+        List<String> listofAllFlightsToCity = newFlightRepo.getListOfFlights().stream()
                 .filter(c -> c.arrivalCity == "Szczecin")
                 .map(m -> "\nDeparture from: " + m.departureCity + "  " + m.departureDateTime.format(formatter) + "\nDestination: " + m.arrivalCity + "  " + m.arrivalDateTime.format(formatter))
                 .collect(Collectors.toList());
@@ -50,7 +50,7 @@ public class FlightRunner {
         listofAllFlightsToCity.forEach(x -> System.out.println(x));
 
         System.out.println("\nFind - From city: Warsaw to Lodz with transfer in Gdansk");
-        List<String> listofFlightsWithTransfer = newFlightRepo.listOfFlights.stream()
+        List<String> listofFlightsWithTransfer = newFlightRepo.getListOfFlights().stream()
                 .filter(c -> c.departureCity == "Warszawa" || c.arrivalCity == "Lodz")
                 .map(m -> "\nDeparture from: " + m.departureCity + "  " + m.departureDateTime.format(formatter) + "\nDestination: " + m.arrivalCity + "  " + m.arrivalDateTime.format(formatter))
                 .collect(Collectors.toList());

@@ -7,7 +7,11 @@ import java.util.List;
 public class FlightRepo {
 
 
-    List<Flight> listOfFlights = new ArrayList<>();
+    private List<Flight> listOfFlights = new ArrayList<>();
+
+    public List<Flight> getListOfFlights() {
+        return listOfFlights;
+    }
 
     public void addFlightToList(Flight flight){
 
