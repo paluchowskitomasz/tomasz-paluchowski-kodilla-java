@@ -5,11 +5,15 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.Date;
+import java.util.Objects;
+
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
 @ToString
-public class OrderDetails {
-    private String productName;
-    private int productQuantity;
+public class ProcessedOrderDetails {
+    private Status status;
+    private OrderDetails orderDetails;
+    private Date processedDate;
 }
